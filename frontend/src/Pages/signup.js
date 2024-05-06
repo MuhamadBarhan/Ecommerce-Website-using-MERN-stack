@@ -3,6 +3,7 @@ import axios from "axios"
 import {Link, useNavigate } from "react-router-dom"
 import '../../src/form.css'
 import Illustration from '../data/illustration.svg'
+import {baseUrl} from '../url'
 
 
 function Signup() {
@@ -27,7 +28,7 @@ function Signup() {
 
         try{
 
-            await axios.post("http://localhost:4000/signup",formData)
+            await axios.post(`${baseUrl}/signup`,formData)
             .then(res=>{
                 if(res.data.success){
                     localStorage.setItem('auth-token',res.data.token);

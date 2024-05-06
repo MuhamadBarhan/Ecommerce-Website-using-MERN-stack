@@ -17,6 +17,7 @@ import image9 from '../data/Images/image9.png'
 
 import { addProduct } from '../redux/reducer/products';
 import { useDispatch } from 'react-redux';
+import {baseUrl} from '../url'
 
 
 const Home = () => {
@@ -26,7 +27,7 @@ const Home = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/allproducts");
+        const response = await axios.get(`${baseUrl}/allproducts`);
         dispatch(addProduct(response.data));
         setAllProducts(response.data);
       } catch (error) {

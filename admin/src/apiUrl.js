@@ -1,0 +1,1 @@
+export const apiUrl = `https://ecommerce-website-using-mern-stack-jr9p.onrender.com`
