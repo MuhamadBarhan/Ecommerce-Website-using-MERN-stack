@@ -1,0 +1,51 @@
+.ct-product-card {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    column-gap: 2rem;
+}
+
+.ct-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 98vw;
+}
+
+.ct-product-image {
+    object-fit: cover;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ct-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.quantity {
+    margin-top: 2rem;
+}
+
+.ct-btn {
+    padding: 0.5rem 2rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.ct-btn.buy {
+    background-color: #fb641b;
+    color: white;
+}
+
+.ct-btn.remove {
+    color: rgb(82, 82, 82);
+}

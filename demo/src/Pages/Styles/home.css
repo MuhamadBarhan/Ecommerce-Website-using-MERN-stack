@@ -1,0 +1,116 @@
+.productCard {
+    padding: 10px;
+    margin: 8px;
+    width: 185px;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.productCardContainer {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addToCart {
+    background-color: #4F4F4F;
+    border: none;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-right: 3rem;
+    cursor: pointer;
+}
+/* .selectProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.wishIcon {
+  
+    cursor: pointer;
+    float: right;
+}
+
+.active-wish-icon {
+    color: red;
+  }
+
+.productImage {
+    object-fit: cover;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productName{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.shop-category {
+    display: flex;
+    flex-direction: column;
+}
+
+.shopImage {
+    height: 3rem;
+    object-fit: cover;
+    padding: 1rem 2rem 0.7rem 2rem;
+}
+
+.catlabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+
+}
+
+.category-container {
+    display: flex;
+    margin: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem;
+}
+
+@media screen and (max-width:450px) {
+    .category-container {
+        margin: 0;
+        padding: 0.25rem;
+        overflow-x: scroll;
+    }
+
+    .shopImage {
+        height: 2rem;
+    }
+    .catlabel {
+        font-size: 10px;
+    }
+
+    .productCard {
+        width: 150px;
+    }
+
+    .addToCart {
+        margin-right: 2rem;
+        
+    }
+    .text {
+        font-size: 0;
+        color: transparent;
+    }
+    .productImage {
+        height: 5rem;
+    }
+}

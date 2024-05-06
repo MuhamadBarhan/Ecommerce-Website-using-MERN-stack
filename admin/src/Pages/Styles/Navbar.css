@@ -1,0 +1,34 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    box-shadow: 0 1px 3px -2px #000;
+    margin-bottom: 1px;
+    background: white;
+}
+
+.logo {
+    margin-left: 1rem;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.book {
+    color: #cd004b;
+    margin: 5px;
+}
+
+.store {
+    color: rgb(70, 70, 70);
+}
+
+.nav-profile {
+    width: 65px;
+}
+
+@media(max-width:800px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+}

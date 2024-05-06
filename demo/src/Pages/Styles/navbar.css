@@ -1,0 +1,136 @@
+.navbar {
+    margin: 0 auto;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    position: sticky;
+    background: white;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.logo {
+    object-fit: cover;
+    height: 2rem;
+    width: 8rem;
+    padding-top: 5px;
+}
+.desktopMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    border: 1px solid grey;
+    padding: 0.3rem;
+    border-radius: 5px;
+    width: 25rem;
+    margin-right: 1rem;
+}
+
+.search-container {
+    border: none;
+    width: 18rem;
+    outline: none;
+    margin-left: 3px;
+
+}
+
+
+.search-icon {
+    color: grey;
+    margin-left: 2px;
+}
+
+.desktopMenuListItem {
+    margin: 1rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+}
+
+.desktopMenuListItem:hover {
+    color: black;
+}
+
+.signupBtn {
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.3rem;
+    margin: 0.5rem;
+    border: 1.5px solid;
+    transition: background-color 0.3s ease-in;
+}
+
+.signupBtn:hover {
+    background-color: rgb(70, 70, 70);
+    color: white;
+}
+
+.active {
+    color: black;
+    padding-bottom: 0.5rem;
+}
+
+.search-icon-mob {
+    display: none;
+}
+
+.parent {
+    position: relative;
+    font-size: 1rem;
+}
+
+.child {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 0px 6px;
+    font-size: 0.75rem;
+    position: absolute;
+    top: -12px;
+    right: -13px;
+    font-weight: bold;
+  }
+  
+
+
+@media screen and (max-width:450px) {
+    .logo {
+        object-fit: cover;
+        height: 1.5rem;
+        width: 6rem;
+        padding-top: 5px;
+    }
+
+    .desktopMenuListItem {
+        font-size: 1.3rem;
+    }
+
+    .search-icon-mob {
+        display: block;
+        margin: 10px;
+        color: rgb(50, 50, 50);
+        text-decoration: none;
+    }
+
+    .desktopMenuListItem.wishlist {
+        display: none;
+    }
+    
+    .wrapper {
+        display: none;
+    }
+
+    .navbar {
+        height: 4.8rem;
+    }
+}
+

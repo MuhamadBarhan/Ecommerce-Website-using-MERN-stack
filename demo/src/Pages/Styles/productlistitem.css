@@ -1,0 +1,98 @@
+.ct-product-card {
+    margin: 10px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+}
+
+.ct-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 98vw;
+    height: 35vh;
+    margin-bottom: 4rem;
+}
+
+.ct-product-image {
+    object-fit: cover;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ct-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.quantity {
+    margin-top: 2rem;
+}
+
+.ct-btn {
+    padding: 0.5rem 2rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.ct-btn.buy {
+    background-color: #fb641b;
+    color: white;
+}
+
+.ct-btn.remove {
+    color: rgb(82, 82, 82);
+}
+
+.ct-button-cont {
+    margin:0 auto;
+    position: fixed;
+    bottom: 0;
+    width: 96.5vw;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px 10px 0px 0px;
+
+}
+
+.ct-button {
+    position: relative;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffc200;
+    color: white;
+    left: 60%;
+    right: -50;
+
+}
+
+@media screen and (max-width:450px) {
+    .ct-product-image {
+        height: 3rem;
+    }
+
+    .ct-btn {
+        padding: 0.5rem 1rem;
+        font-size: 10px;
+        margin: 1rem;
+    }
+    .ct-desc {
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .ct-container {
+        margin-bottom: 3rem;
+    }
+}
