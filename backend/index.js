@@ -131,7 +131,16 @@ const Users = mongoose.model('Users', {
         type: String
     },
     cartData: {
-        type: Object
+        type: Array, 
+        default: []
+    },
+    wishData: {
+        type: Array,
+        default: []
+    },
+    userInfo: {
+        type: Array,
+        default: []
     },
     date: {
         type: Date,
@@ -148,15 +157,16 @@ app.post('/signup', async (req, res) => {
     if (check) {
         return res.status(400).json({ success: false, errors: "Existing User Found" })
     }
-    let cart = {};
-    for (let i = 0; i < 300; i++) {
-        cart[i] = 0;
-    }
+    let cart = [];
+    let wishlist = [];
+    let userdetails=[];
     const user = new Users({
         name: req.body.username,
         email: req.body.email,
         password: req.body.password,
         cartData: cart,
+        wishData: wishlist,
+        userInfo: userdetails,
     })
 
     await user.save();
@@ -186,12 +196,56 @@ app.post('/login', async (req, res) => {
             res.json({ success: true, token });
         }
         else {
-            res.json({ success: false, errors: "Wrong Password" });
+            res.status(401).send({ success: false, errors: "Wrong Password" });
         }
     }
     else {
-        res.json({ success: false, errors: "Wrong Email Id" });
+        res.status(401).send({ success: false, errors: "Wrong Email Id" });
     }
+})
+
+//Creating middleware to fetch user
+const fetchUser = async (req, res, next) => {
+    const token = req.header('auth-token');
+    if (!token) {
+        res.status(401).send({ errors: "please authenticate" })
+    }
+    else {
+        try {
+            const data = jwt.verify(token, 'secret_ecom');
+            req.user = data.user;
+            next();
+        } catch (error) {
+            res.status(401).send({ errors: "Please autheticate using valid token" })
+        }
+    }
+}
+
+//Creating endpoint to save cartData
+app.post('/savecart', fetchUser, async (req, res) => {
+    let userData = await Users.findOne({ _id: req.user.id });
+    if (!Array.isArray(userData.cartData)) {
+        userData.cartData = [userData.cartData];
+    }
+    userData.cartData = req.body;
+    await Users.findOneAndUpdate({_id:req.user.id} , {cartData:userData.cartData});
+    res.send("Added");
+
+});
+
+//creating endpoint to get the cart data
+app.post('/getcart' , fetchUser , async(req,res)=>{
+    let userData = await Users.findOne({ _id: req.user.id });
+    res.json(userData.cartData);
+    
+});
+
+//Creating endpoint to store userData
+app.post('/saveinfo' , fetchUser , async(req,res)=>{
+    let userData = await Users.findOne({_id:req.user.id});
+    userData.userInfo=req.body;
+    await Users.findOneAndUpdate({_id:req.user.id} , {userInfo:userData.userInfo});
+    res.send("Added");
 })
 
 app.listen(port, (error) => {

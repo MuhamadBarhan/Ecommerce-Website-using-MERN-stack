@@ -11,6 +11,10 @@ import Cart from "./Pages/Cart";
 import Wishlist from "./Pages/Wishlist";
 import ProductDetails from "./Pages/ProductDetails";
 import BuyNow from "./Pages/buynow";
+import Checkout from "./Pages/Checkout"
+import OrderSummary from "./Pages/OrderSummary";
+import PaymentPage from "./Pages/Payment";
+import './App.css'
 
 
 function App() {
@@ -34,6 +38,9 @@ function App() {
             <Route path="" element={<BuyNow/>}/>
             <Route path=":id" element={<BuyNow/>}/>
           </Route>
+          <Route path="/checkout" element={<Checkout/>}/>
+          <Route path="/ordersummary" element={<OrderSummary/>}/>
+          <Route path="/payment" element={<PaymentPage/>}/>
         </Routes>
       </Router>
     </div>

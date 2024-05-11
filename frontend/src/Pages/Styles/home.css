@@ -1,15 +1,20 @@
 .productCard {
     padding: 10px;
-    margin: 8px;
-    width: 185px;
+    margin: 6px;
+    width: 180px;
     border: 1px solid #e4e4e4;
     border-radius: 0.5rem;
     cursor: pointer;
+    background-color: white;
 }
 
 .productCardContainer {
     display: flex;
     overflow-x: scroll;
+    scrollbar-width: none;
+    padding: 10px;
+    margin: 0 0.5rem;
+    background-color: white;
 }
 
 .imageContainer {
@@ -27,11 +32,6 @@
     margin-right: 3rem;
     cursor: pointer;
 }
-/* .selectProduct {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 .wishIcon {
   
@@ -82,7 +82,37 @@
     margin: 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     padding: 0.5rem;
+    background-color: white;
 }
+
+.loading-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #5e5e5e;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
+    
+  
 
 @media screen and (max-width:450px) {
     .category-container {
@@ -112,5 +142,9 @@
     }
     .productImage {
         height: 5rem;
+    }
+
+    .discount-img {
+        display: none;
     }
 }

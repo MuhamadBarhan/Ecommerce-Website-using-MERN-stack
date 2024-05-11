@@ -1,4 +1,4 @@
-import React , {useState}  from 'react'
+import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 // import { products } from '../data/Products';
 import './Styles/ProductDetails.css'
@@ -8,6 +8,7 @@ import { faBoltLightning } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../redux/reducer/cart';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const ProductDetails = () => {
@@ -15,25 +16,25 @@ const ProductDetails = () => {
   const params = useParams();
   const navigate=useNavigate();
   const dispatch=useDispatch();
-  const [alert,setAlert]=useState(false);
   const products = useSelector((state)=> state.product.list);
   const item = products.find((element) => element.id === parseInt(params.id));
   const list=useSelector((state)=> state.cart.list);
   const element=list.find((value)=>value.id===item.id);
 
   const addToCart = () => {
-    setAlert(true);
-    setTimeout(()=>setAlert(false),3000)
-    dispatch(addItem(item));
+    if(localStorage.getItem('auth-token')){
+      dispatch(addItem(item));
+      toast.success("Item added to cart");
+    }
+    else {
+      navigate('/login');
+    }
   };
 
   return (
     <div>
-       {alert && <div className="alertBox">
-       <span className="alertSuccess">Item added to Cart <FontAwesomeIcon icon={faCircleCheck}/></span>
-       </div>}
-    <div className="product-detail" key={item.id} >
-     
+      <Toaster/>
+    <div className="product-detail" key={item.id} > 
       <div className="pd-image-container">
         <img src={item.image} alt={item.name} className="pd-image" />
       </div>

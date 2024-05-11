@@ -1,0 +1,40 @@
+.wishlist-header {
+    font-size: 1.5rem;
+    margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.wishlist-nav {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wishlist-card {
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.wishlist-prod-image {
+    object-fit: cover;
+    height: 6rem;
+    margin: 1rem;
+}
+
+@media screen and (max-width:450px) {
+    .wishlist-card {
+        width: 90%;
+    }
+    .wishlist-prod-image {
+        height: 2rem;
+    }
+    .wishlist-desc-text {
+        font-size: 15px;
+    }
+}

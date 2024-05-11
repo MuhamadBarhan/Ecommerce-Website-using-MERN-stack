@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { setCartItems } from '../redux/reducer/cart';
 import {baseUrl} from '../url'
 
-const Cart = () => {
+const OrderSummary = () => {
   const [loading, setLoading] = useState(true);
   const list = useSelector((state) => state.cart.list);
   const navigate=useNavigate();
@@ -64,12 +64,12 @@ const Cart = () => {
             <>
               <div className="cart-cont">
                 <div className="cart-left-cont">
-                  <div className="ct-heading"><span className="ct-heading-text">Your Cart Items</span></div>
+                  <div className="ct-heading"><span className="ct-heading-text">Order Summary</span></div>
                   {list.map((item) => (
                     <CartComp {...item} key={item.id} incrementItem={() => incrementItem(item)} decrementItem={() => decrementItem(item)} removeItem={() => removeItemFromCart(item)} />
                   ))}
                   <div className='place-order-cont pc'>
-                    <button className='formBtn ' onClick={()=>navigate('/checkout')}>Place Order</button>
+                    <button className='formBtn ' onClick={()=>navigate('/payment')}>Continue to payment</button>
                   </div>
                 </div>
                 <div className="ct-right-cont">
@@ -98,7 +98,7 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className='place-order-cont mob'>
-                    <button className='formBtn ' onClick={()=>navigate('/checkout')}>Place Order</button>
+                    <button className='formBtn ' onClick={()=>navigate('/payment')}>Continue to pay</button>
                   </div>
               </div>
             </>
@@ -110,4 +110,4 @@ const Cart = () => {
 
 }
 
-export default Cart
+export default OrderSummary

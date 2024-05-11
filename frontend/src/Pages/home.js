@@ -17,12 +17,15 @@ import image9 from '../data/Images/image9.png'
 
 import { addProduct } from '../redux/reducer/products';
 import { useDispatch } from 'react-redux';
-import {baseUrl} from '../url'
+import { baseUrl } from '../url'
+import { setCartItems } from '../redux/reducer/cart';
 
 
 const Home = () => {
-  const [allProducts, setAllProducts] = useState([]);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+  const [allProducts, setAllProducts] = useState([]);
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -30,12 +33,33 @@ const Home = () => {
         const response = await axios.get(`${baseUrl}/allproducts`);
         dispatch(addProduct(response.data));
         setAllProducts(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
+
+    if (localStorage.getItem('auth-token')) {
+      axios.post(`${baseUrl}/getcart`, {}, {
+        headers: {
+          Accept: '*/*',
+          'auth-token': `${localStorage.getItem('auth-token')}`,
+          'Content-Type': 'application/json',
+        }
+      })
+        .then(res => {
+          dispatch(setCartItems(res.data));
+          console.log(res.data)
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+
+
     fetchProducts();
   }, [dispatch]);
+
 
   //Carousel Images
   const images = [image1, image2, image3, image4,];
@@ -52,24 +76,30 @@ const Home = () => {
 
   return (
     <div>
-      <div className="container">
-        <div className="category-container">
-          {category.map((product, index) => (
-            <div className="shop-category">
-              <Link to={product.link}><img src={product.image} alt={product.name} className="shopImage" id='cat-img' /></Link>
-              <label for='cat-img' className='catlabel'>{product.name}</label>
-            </div>
-          ))}
+      {loading ? (
+        <div className="loading-animation">
+          <span className="loader"></span>
         </div>
-        <div className="image-carousel">
-          <ImageCarousel images={images} />
+      ) : (
+        <div className="container">
+          <div className="category-container">
+            {category.map((product, index) => (
+              <div className="shop-category" key={product.id}>
+                <Link to={product.link}><img src={product.image} alt={product.name} className="shopImage" id='cat-img' /></Link>
+                <label htmlFor='cat-img' className='catlabel'>{product.name}</label>
+              </div>
+            ))}
+          </div>
+          <div className="image-carousel">
+            <ImageCarousel images={images} />
+          </div>
+          <div className="productCardContainer">
+            {allProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
-        <div className="productCardContainer">
-          {allProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </div>
+      )}
     </div>
   );
 };

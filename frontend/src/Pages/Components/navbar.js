@@ -5,11 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faCartShopping, faSearch} from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useSelector } from 'react-redux'
 
 const Navbar = () => {
-  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.list);
 
   return (
@@ -39,9 +38,9 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faHeart} />
         </Link>
         {localStorage.getItem('auth-token') ?
-          <button onClick={() => {
+          <button  onClick={() => {
             localStorage.removeItem('auth-token');
-            navigate("/");
+            window.location.replace("/");
           }}>Logout</button> :
           <Link to="/login" className="desktopMenuListItem">
             <FontAwesomeIcon icon={faUser} />  Login

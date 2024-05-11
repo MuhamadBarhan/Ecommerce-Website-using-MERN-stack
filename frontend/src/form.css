@@ -43,6 +43,38 @@
     
 }
 
+.password-container {
+    position: relative;
+    width: 85%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#ip2 {
+    margin: 0.5rem;
+    width: 15rem;
+    padding: 0.5rem;
+    background-clip: padding-box;
+    border: 1px solid #ced4da ;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    outline: none;
+    
+}
+
+.pass-icon {
+    color: grey;
+}
+
+
 
 .formHeading {
     font-size: 2rem;
