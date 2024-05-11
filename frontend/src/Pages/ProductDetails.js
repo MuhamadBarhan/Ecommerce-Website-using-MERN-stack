@@ -27,7 +27,10 @@ const ProductDetails = () => {
       toast.success("Item added to cart");
     }
     else {
-      navigate('/login');
+      toast.error("Please Login");
+      setTimeout(() => {
+        navigate('/');
+    }, 1000);
     }
   };
 
