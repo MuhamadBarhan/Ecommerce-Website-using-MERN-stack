@@ -38,7 +38,7 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faHeart} />
         </Link>
         {localStorage.getItem('auth-token') ?
-          <button  onClick={() => {
+          <button style={{backgroundColor:'grey', color:'white' , border:'none'}} onClick={() => {
             localStorage.removeItem('auth-token');
             window.location.replace("/");
           }}>Logout</button> :
