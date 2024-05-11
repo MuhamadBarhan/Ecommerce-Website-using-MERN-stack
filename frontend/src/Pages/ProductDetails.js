@@ -29,7 +29,7 @@ const ProductDetails = () => {
     else {
       toast.error("Please Login");
       setTimeout(() => {
-        navigate('/');
+        navigate('/login');
     }, 1000);
     }
   };
