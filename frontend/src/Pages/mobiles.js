@@ -64,9 +64,9 @@ const Mobiles = () => {
                 </div>
                 <div className="rightside">
                     <div className="products-list">
-                        {data.map((product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))}
+                        
+                            <ProductCard product={data} />
+                        
                     </div>
                 </div>
             </div>
