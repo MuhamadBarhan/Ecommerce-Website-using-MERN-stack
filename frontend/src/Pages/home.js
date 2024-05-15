@@ -14,17 +14,23 @@ import image6 from '../data/Images/image6.png'
 import image7 from '../data/Images/image7.png'
 import image8 from '../data/Images/image8.png'
 import image9 from '../data/Images/image9.png'
+import banner from '../data/Images/banner.png'
 
 import { addProduct } from '../redux/reducer/products';
 import { useDispatch } from 'react-redux';
 import { baseUrl } from '../url'
 import { setCartItems } from '../redux/reducer/cart';
+import toast, { Toaster } from 'react-hot-toast';
+import Sponsored from './Components/Sponsored';
 
 
 const Home = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [allProducts, setAllProducts] = useState([]);
+  const [data, setData] = useState([]);
+  console.log(allProducts, data);
+
 
 
   useEffect(() => {
@@ -35,7 +41,7 @@ const Home = () => {
         setAllProducts(response.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        toast.error("Network Error");
       }
     };
 
@@ -60,6 +66,12 @@ const Home = () => {
     fetchProducts();
   }, [dispatch]);
 
+  useEffect(() => {
+    const result = allProducts.filter((curData) => curData.category && curData.category.includes('android'));
+    setData(result);
+  }, [allProducts]); // This effect runs whenever allProducts changes.
+  
+
 
   //Carousel Images
   const images = [image1, image2, image3, image4,];
@@ -76,6 +88,7 @@ const Home = () => {
 
   return (
     <div>
+      <Toaster />
       {loading ? (
         <div className="loading-animation">
           <span className="loader"></span>
@@ -93,11 +106,10 @@ const Home = () => {
           <div className="image-carousel">
             <ImageCarousel images={images} />
           </div>
-          <div className="productCardContainer">
-            {allProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          <ProductCard product={allProducts} />
+          <img src={banner} alt="banner" className='banner' />
+          <Sponsored product={data}/>
+          <ProductCard product={data} />
         </div>
       )}
     </div>

@@ -1,0 +1,44 @@
+.sponsored-container {
+    background: linear-gradient(to right, #92ffe7, #9fffa7);
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+
+}
+
+.sponsored-card-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sponsored-card {
+    padding: 10px;
+    margin: 0.5rem;
+    width: 160px;
+    height: 180px;
+    border-radius: 0.5rem;
+    background-color: white;
+    text-overflow: ellipsis;
+}
+
+.sponsored-img-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sponsored-img {
+    object-fit: cover;
+    height: 6rem;
+    margin-bottom: 2rem;
+}
+
+.sponsored-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
