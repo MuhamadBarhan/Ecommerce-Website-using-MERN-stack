@@ -124,4 +124,8 @@
         display: block;
         margin: 0.3rem 0;
     }
+
+    .productCardContainer {
+        padding: 1rem;
+    }
 }
