@@ -3,7 +3,8 @@
     overflow-x: scroll;
     scrollbar-width: none;
     background-color: white;
-    padding: 0.5rem;
+    padding: 0.5rem 2.5rem;
+    border-bottom: 2px solid #ccc;
 }
 .category {
     background-color: rgb(232, 244, 255);
@@ -30,8 +31,8 @@
 }
 
 .productCardContainer {
-    padding: 10px;
-    margin: 0.5rem 0;
+    padding: 1rem 2rem;
+    margin: 0.5rem;
     background-color: rgb(255, 252, 252);
     margin-bottom: 0.5rem;
 }

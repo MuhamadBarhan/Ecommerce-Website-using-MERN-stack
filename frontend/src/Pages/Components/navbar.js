@@ -36,16 +36,19 @@ const Navbar = () => {
         <img src={heartIcon} alt="wish-icon" width={24} height={24}/>
         </Link>
         {localStorage.getItem('auth-token') ?
-          <button style={{backgroundColor:'grey', color:'white' , border:'none'}} onClick={() => {
-            localStorage.removeItem('auth-token');
-            window.location.replace("/");
-          }}>Logout</button> :
+           <Link to="/profile" className="desktopMenuListItem">
+           <img src={profileIcon} alt="cart-icon" width={24} height={24}/>
+         </Link>:
           <Link to="/login" className="desktopMenuListItem">
             <img src={profileIcon} alt="cart-icon" width={24} height={24}/>
           </Link>
         }
       </div>
     </nav>
+    // <button style={{backgroundColor:'grey', color:'white' , border:'none'}} onClick={() => {
+    //   localStorage.removeItem('auth-token');
+    //   window.location.replace("/");
+    // }}>Logout</button>
   )
 }
 

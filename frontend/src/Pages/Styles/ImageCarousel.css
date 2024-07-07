@@ -1,9 +1,9 @@
 .image-carousel { 
-  margin: 0 auto 0.5rem auto;
+  margin: 0.1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 97vw;
+  width: 100%;
 }
 
 .carousel-image {

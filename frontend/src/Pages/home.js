@@ -4,7 +4,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import ImageCarousel from './Components/ImageCarousel';
 import './Styles/home.css';
 import ProductCard from './Components/ProductCard'
-import image1 from '../data/Images/image1.jpg'
+import image1 from '../data/Images/image1.webp'
 import image2 from '../data/Images/image2.jpg'
 import image3 from '../data/Images/image3.jpg'
 import image4 from '../data/Images/image4.jpg'
