@@ -6,6 +6,7 @@ import cartIcon from '../../data/Images/cart.svg';
 import heartIcon from '../../data/Images/heart.svg';
 import profileIcon from '../../data/Images/user.svg';
 import searchIcon from '../../data/Images/search.svg';
+import arrowIcon from '../../data/Images/arrow.svg';
 
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.list);
@@ -78,10 +79,10 @@ const Navbar = () => {
       {isSearchOpen && (
         <div className="mobile-search">
           <img
-            src={searchIcon}
+            src={arrowIcon}
             alt="search-icon"
-            width={22}
-            height={22}
+            width={20}
+            height={20}
             onClick={toggleSearch}
             className="close-search"
           />
