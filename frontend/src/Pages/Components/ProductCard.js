@@ -24,7 +24,7 @@ const ProductCard = ({product}) => {
 
   return (
     <div className="productCardContainer">
-      <span>Featured Products</span>
+      <p style={{fontSize:'18px', fontWeight:'600', color:'#3a3a3a',margin:'0.7rem 0rem'}}>Featured Products</p>
       <div className="card-cont">
         {product.map((product) => (
           <div className="productCard" key={product.id}>

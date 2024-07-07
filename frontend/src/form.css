@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 80vh;
     background:#F7F7F7;
 
 }
@@ -13,7 +13,7 @@
     max-width: 100vw;
     border: 1px solid #ccc;
     border-radius: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(56, 149, 255, 0.1);
     background-color: #FFFFFF;
 }
 
@@ -87,7 +87,7 @@
 }
 
 .formBtn {
-    background: grey;
+    background: #008ecc;
     color: white;
     margin: 1.2rem;
     padding: 0.5rem 7rem;
@@ -96,7 +96,6 @@
     cursor: pointer;
 }
 
-/*login page*/
 
 .fpass {
     font-size: small;

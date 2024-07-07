@@ -14,11 +14,12 @@
 }
 
 .logo {
-    object-fit: cover;
-    height: 2rem;
-    width: 8rem;
-    padding-top: 5px;
+    font-size: 22px;
+    margin: 0.5rem 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
+
 .desktopMenu {
     display: flex;
     justify-content: center;
@@ -26,25 +27,22 @@
 }
 
 .wrapper {
-    border: 1px solid grey;
+    border: 1px solid #008ecc;
     padding: 0.3rem;
     border-radius: 5px;
     width: 25rem;
     margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .search-container {
     border: none;
-    width: 18rem;
+    width: 22rem;
     outline: none;
     margin-left: 3px;
 
-}
-
-
-.search-icon {
-    color: grey;
-    margin-left: 2px;
 }
 
 .desktopMenuListItem {
@@ -85,7 +83,6 @@
 
 .parent {
     position: relative;
-    font-size: 1rem;
 }
 
 .child {
@@ -98,17 +95,11 @@
     top: -12px;
     right: -13px;
     font-weight: bold;
-  }
-  
+}
+
 
 
 @media screen and (max-width:450px) {
-    .logo {
-        object-fit: cover;
-        height: 1.5rem;
-        width: 6rem;
-        padding-top: 5px;
-    }
 
     .desktopMenuListItem {
         font-size: 1.3rem;
@@ -124,7 +115,7 @@
     .desktopMenuListItem.wishlist {
         display: none;
     }
-    
+
     .wrapper {
         display: none;
     }
@@ -133,4 +124,3 @@
         height: 4.8rem;
     }
 }
-

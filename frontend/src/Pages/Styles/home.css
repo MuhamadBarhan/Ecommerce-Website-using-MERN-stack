@@ -1,3 +1,24 @@
+.category-container {
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    background-color: white;
+    padding: 0.5rem;
+}
+.category {
+    background-color: rgb(232, 244, 255);
+    font-size: 12px;
+    padding: 0.4rem 0.8rem;
+    margin: 0.5rem;
+    border-radius: 2rem;
+    flex: 0 0 auto; 
+}
+
+.c {
+    background-color: #008ecc;  
+    color: white;
+}
+
 .productCard {
     padding: 10px;
     margin: 6px;
@@ -10,7 +31,7 @@
 
 .productCardContainer {
     padding: 10px;
-    margin: 0 0.5rem;
+    margin: 0.5rem 0;
     background-color: rgb(255, 252, 252);
     margin-bottom: 0.5rem;
 }
@@ -25,16 +46,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.addToCart {
-    background-color: #4F4F4F;
-    border: none;
-    color: white;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    margin-right: 3rem;
-    cursor: pointer;
 }
 
 .wishIcon {
@@ -62,65 +73,18 @@
 
 }
 
-.shop-category {
-    display: flex;
-    flex-direction: column;
-}
-
-.shopImage {
-    height: 3rem;
-    object-fit: cover;
-    padding: 1rem 2rem 0.7rem 2rem;
-}
-
-.catlabel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: small;
-
-}
-
-.category-container {
-    display: flex;
-    margin: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    padding: 0.5rem;
-    background-color: white;
-}
-
 .banner {
     display: none;
 }
 
 .loading-animation {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 80vh;
 }
-
-.loader {
-    width: 48px;
-    height: 48px;
-    border: 5px solid #5e5e5e;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-    }
-
-    @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-} 
-
     
-  
 
 @media screen and (max-width:450px) {
     .category-container {
