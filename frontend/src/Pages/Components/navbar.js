@@ -45,10 +45,6 @@ const Navbar = () => {
         }
       </div>
     </nav>
-    // <button style={{backgroundColor:'grey', color:'white' , border:'none'}} onClick={() => {
-    //   localStorage.removeItem('auth-token');
-    //   window.location.replace("/");
-    // }}>Logout</button>
   )
 }
 
