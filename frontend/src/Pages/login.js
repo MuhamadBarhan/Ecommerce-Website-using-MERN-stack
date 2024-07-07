@@ -82,7 +82,7 @@ function Login() {
                         </button>
                     </div>
                     <button type="submit" className='formBtn' onClick={submit} >Login</button>
-                    <Link to="/forgotpass" className="fpass">Forgot Password?</Link>
+                    <Link to="/forgotpass" className="formLink">Forgot Password?</Link>
                     
                     <p className="formLink">Don't have an account? <Link to="/signup">Create one!</Link></p>
                 </form>

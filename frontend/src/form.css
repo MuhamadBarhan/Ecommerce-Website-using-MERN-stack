@@ -11,10 +11,9 @@
 .formContainer {
     display: flex;
     max-width: 100vw;
-    border: 1px solid #ccc;
     border-radius: 1rem;
     box-shadow: 0 2px 4px rgba(56, 149, 255, 0.1);
-    background-color: #FFFFFF;
+    background-color: white;
 }
 
 .form {
@@ -25,27 +24,32 @@
     align-items: center;  
 }
 
+.form a {
+    text-decoration: none;
+    color: #088ecc;
+}
+
 .illustration {
-   
     border-radius: 1rem 0 0 1rem;
 }
 
 /*inputs*/
-#ip1, #ip2,#ip3,#ip4,#ip5 {
+#ip1, #ip2,#ip3,#ip4,#ip5,#ip6 {
     margin: 0.5rem;
     width: 15rem;
-    padding: 0.5rem;
-    background-clip: padding-box;
+    padding: 0.4rem 0.8rem;
     border: 1px solid #ced4da ;
-    border-radius: 0.25rem;
-    font-size: 0.7rem;
+    border-radius: 20px;
+    font-size: 14px;
     outline: none;
-    
+}
+
+#ip6 {
+    margin-left: 1.5rem;
 }
 
 .password-container {
     position: relative;
-    width: 85%;
 }
 
 .toggle-password {
@@ -58,23 +62,9 @@
     cursor: pointer;
 }
 
-#ip2 {
-    margin: 0.5rem;
-    width: 15rem;
-    padding: 0.5rem;
-    background-clip: padding-box;
-    border: 1px solid #ced4da ;
-    border-radius: 0.25rem;
-    font-size: 0.7rem;
-    outline: none;
-    
-}
-
 .pass-icon {
     color: grey;
 }
-
-
 
 .formHeading {
     font-size: 2rem;
@@ -82,26 +72,20 @@
 }
 
 .formLink {
-    font-size: small;
+    font-size: 14px;
     margin-top: 1rem;
 }
 
-.formBtn {
+
+.formBtn , .forgotsubmitBtn{
     background: #008ecc;
     color: white;
     margin: 1.2rem;
     padding: 0.5rem 7rem;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 20px;
     cursor: pointer;
 }
-
-
-.fpass {
-    font-size: small;
-    margin-top: 0.7rem;
-}
-
 
 @media  screen and (max-width:450px) {
     .illustration {
