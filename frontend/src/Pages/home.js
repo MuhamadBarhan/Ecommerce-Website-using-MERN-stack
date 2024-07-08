@@ -35,10 +35,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [allProducts, setAllProducts] = useState([]);
-  const [data, setData] = useState([]);
-  console.log(allProducts, data);
-
-
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -73,16 +69,8 @@ const Home = () => {
     fetchProducts();
   }, [dispatch]);
 
-  useEffect(() => {
-    const result = allProducts.filter((curData) => curData.category && curData.category.includes('android'));
-    setData(result);
-  }, [allProducts]); // This effect runs whenever allProducts changes.
-
-
-
   //Carousel Images
   const images = [image1, image2, image3, image4,];
-
 
   return (
     <div>
@@ -107,8 +95,8 @@ const Home = () => {
           </div>
           <ProductCard product={allProducts}/>
           <img src={banner} alt="banner" className='banner' />
-          <Sponsored product={data} />
-          <ProductCard product={data} />
+          <Sponsored product={allProducts} />
+          <ProductCard product={allProducts} />
         </div>
       )}
     </div>

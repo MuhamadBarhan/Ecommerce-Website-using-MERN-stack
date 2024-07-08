@@ -1,120 +1,156 @@
 .navbar {
-    margin: 0 auto;
-    padding: 0 2rem;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100vw;
-    position: sticky;
-    background: white;
-    top: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-  }
-  
-  .logo {
-    font-size: 22px;
-    margin: 0.5rem 1.5rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-  }
-  
-  .desktopMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .wrapper {
-    border: 1px solid #008ecc;
-    padding: 0.3rem;
-    border-radius: 20px;
-    width: 25rem;
-    margin-right: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .search-container,
-  .mobile-search-container {
-    border: none;
-    width: 100%;
-    outline: none;
-    margin-left: 3px;
-  }
-  
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100vw;
+  position: sticky;
+  background: white;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.logo {
+  font-size: 22px;
+  margin: 0.5rem 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.desktopMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  border: 1px solid #008ecc;
+  padding: 0.3rem;
+  border-radius: 20px;
+  width: 25rem;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.search-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: absolute;
+  top: calc(100% - 0.5rem);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 25.5rem;
+}
+
+.search-items ul li {
+  list-style-type: none;
+}
+
+.search-items-mob {
+  display: none;
+}
+
+.search-container,
+.mobile-search-container {
+  border: none;
+  width: 100%;
+  outline: none;
+  margin-left: 3px;
+}
+
+.desktopMenuListItem {
+  margin: 1rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+}
+
+.desktopMenuListItem:hover {
+  color: black;
+}
+
+.search-icon-mob {
+  display: none;
+}
+
+.parent {
+  position: relative;
+}
+
+.child {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 0px 6px;
+  font-size: 0.75rem;
+  position: absolute;
+  top: -12px;
+  right: -13px;
+  font-weight: bold;
+}
+
+.mobile-search {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  background-color: #fff;
+  position: absolute;
+  top: 4.8rem;
+  left: 0;
+  right: 0;
+}
+
+.close-search {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 450px) {
   .desktopMenuListItem {
-    margin: 1rem;
-    cursor: pointer;
-    font-size: 0.85rem;
-    text-decoration: none;
-    color: rgb(50, 50, 50);
+    font-size: 1.3rem;
   }
-  
-  .desktopMenuListItem:hover {
-    color: black;
-  }
-  
+
   .search-icon-mob {
+    display: block;
+    margin: 10px;
+    text-decoration: none;
+  }
+
+  .desktopMenuListItem.wishlist {
     display: none;
   }
-  
-  .parent {
-    position: relative;
+
+  .wrapper,
+  .search-items {
+    display: none;
   }
-  
-  .child {
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 0px 6px;
-    font-size: 0.75rem;
-    position: absolute;
-    top: -12px;
-    right: -13px;
-    font-weight: bold;
+
+  .navbar {
+    height: 4.8rem;
+    padding: 0;
   }
-  
-  .mobile-search {
-    display: flex;
-    align-items: center;
-    padding: 1rem 0.5rem;
-    background-color: #fff;
+
+  .search-items-mob {
+    display: block;
+    background-color: white;
     position: absolute;
-    top: 4.8rem;
+    top: 3.5rem;
     left: 0;
-    right: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
   }
-  
-  .close-search {
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  @media screen and (max-width: 450px) {
-    .desktopMenuListItem {
-      font-size: 1.3rem;
-    }
-  
-    .search-icon-mob {
-      display: block;
-      margin: 10px;
-      text-decoration: none;
-    }
-  
-    .desktopMenuListItem.wishlist {
-      display: none;
-    }
-  
-    .wrapper {
-      display: none;
-    }
-  
-    .navbar {
-      height: 4.8rem;
-      padding: 0;
-    }
-  }
-  
+
+}

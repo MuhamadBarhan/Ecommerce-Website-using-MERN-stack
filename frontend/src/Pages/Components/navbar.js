@@ -10,23 +10,32 @@ import arrowIcon from '../../data/Images/arrow.svg';
 
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.list);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // State for search bar visibility
-  const [searchText, setSearchText] = useState(''); // State for search text
-  const searchInputRef = useRef(null); 
+  let data = useSelector((state) => state.product.list);
+
+  if (!Array.isArray(data)) {
+    data = [data];
+  }
+
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchText, setSearchText] = useState('');
+  const searchInputRef = useRef(null);
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
     if (!isSearchOpen) {
       setTimeout(() => {
-        searchInputRef.current.focus(); // Focus the input after a short delay
-      }, 100); // Adjust delay as needed
+        searchInputRef.current.focus();
+      }, 100);
     }
   };
 
   const handleSearchChange = (e) => {
     setSearchText(e.target.value);
-    // You can perform search functionality here based on searchText if needed
   };
+
+  const filteredData = data.filter(item =>
+    item.name.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   return (
     <nav className="navbar">
@@ -35,21 +44,69 @@ const Navbar = () => {
       </span>
       <div className="desktopMenu">
         {/* Search bar for desktop view */}
-        <div className="wrapper">
-          <img src={searchIcon} alt="search-icon" width={22} height={22} />
-          <input
-            type="text"
-            placeholder="Search..."
-            className="search-container"
-            value={searchText}
-            onChange={handleSearchChange}
-          />
+        <div className="search-cont-wrapper">
+          <div className="wrapper">
+            <img src={searchIcon} alt="search-icon" width={22} height={22} />
+            <input
+              type="text"
+              placeholder="Search..."
+              className="search-container"
+              value={searchText}
+              onChange={handleSearchChange}
+            />
+          </div>
+          <div className="search-items">
+            {searchText && (
+              <div>
+                {filteredData.map((item) => (
+                  <p key={item._id}>{item.name}</p>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
+
+
 
         {/* Search icon for mobile view */}
         <div className="search-icon-mob" onClick={toggleSearch}>
           <img src={searchIcon} alt="search-icon" width={24} height={24} />
         </div>
+
+        {/* Mobile view search bar */}
+        {isSearchOpen && (
+          <>
+            <div className="mobile-search">
+              <img
+                src={arrowIcon}
+                alt="search-icon"
+                width={20}
+                height={20}
+                onClick={toggleSearch}
+                className="close-search"
+              />
+              <input
+                type="text"
+                placeholder="Search..."
+                className="mobile-search-container"
+                value={searchText}
+                ref={searchInputRef}
+                onChange={handleSearchChange}
+              />
+              <div className="search-items-mob">
+              {searchText && (
+                <div className="search-results-mob">
+                  {filteredData.map((item) => (
+                    <p key={item._id}>{item.name}</p>
+                  ))}
+                </div>
+              )}
+            </div>
+            </div>
+            
+          </>
+        )}
+
 
         <Link to="/cart" className="desktopMenuListItem">
           <div className="parent">
@@ -74,28 +131,6 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-
-      {/* Mobile view search bar */}
-      {isSearchOpen && (
-        <div className="mobile-search">
-          <img
-            src={arrowIcon}
-            alt="search-icon"
-            width={20}
-            height={20}
-            onClick={toggleSearch}
-            className="close-search"
-          />
-          <input
-            type="text"
-            placeholder="Search..."
-            className="mobile-search-container"
-            value={searchText}
-            ref={searchInputRef}
-            onChange={handleSearchChange}
-          />
-        </div>
-      )}
     </nav>
   );
 };
