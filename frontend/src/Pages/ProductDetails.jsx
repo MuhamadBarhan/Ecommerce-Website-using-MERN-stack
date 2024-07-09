@@ -48,7 +48,8 @@ const ProductDetails = () => {
         <div className="buyProduct">
           {element?.count>0 ? <button className='pd-btn goto' onClick={()=>navigate('/cart')}><FontAwesomeIcon icon={faCircleCheck}/> Go to Cart</button>:
             <button className='pd-btn cart' onClick={addToCart}><FontAwesomeIcon icon={faCartShopping}/> Add to Cart</button>}
-          <button className='pd-btn buy' onClick={()=>navigate(`/buynow/${item.id}`)}><FontAwesomeIcon icon={faBoltLightning}/> Buy Now</button>
+          <button className='pd-btn buy' ><FontAwesomeIcon icon={faBoltLightning}/> Buy Now</button> 
+          {/* onClick={()=>navigate(`/buynow/${item.id}`)} */}
         </div>
       </div>
     </div>

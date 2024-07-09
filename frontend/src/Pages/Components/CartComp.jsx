@@ -22,7 +22,7 @@ const CartComp = (props) => {
             <button onClick={props.decrementItem} style={{border:'none', cursor:'pointer'}}>-</button>
             <span className="qty"> Quantity: {props.count} </span>
             <button onClick={props.incrementItem} style={{border:'none', cursor:'pointer'}}>+</button>
-            <button className='ct-btn remove' onClick={props.removeItem}><FontAwesomeIcon icon={faTrash}/> Remove</button> 
+            <button className='ct-btn remove' onClick={props.removeItem}>Remove</button> 
           </div>
       </div>
     </div>

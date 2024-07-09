@@ -26,22 +26,23 @@
     padding: 0.5rem 2rem;
     margin: 0.5rem;
     width:15rem;
-    border-radius: 5px;
+    border-radius: 20px;
     border: none;
     color: white;
     cursor: pointer;
 }
 
 .pd-btn.cart {
-    background-color: #ff9f00;
+    background-color: #a0a0a0;
 }
 
 .pd-btn.buy {
-    background-color: #fb641b;
+    background-color: #008ecc;
 }
 
 .pd-btn.goto {
-    color: rgb(82, 82, 82);
+    color: #008ecc;
+    background-color: #e2e3e4;
 }
 
 .alertBox {

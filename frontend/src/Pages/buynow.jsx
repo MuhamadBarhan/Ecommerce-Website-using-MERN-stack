@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import ProductList from './Components/productlist'
+import BuynowComp from './Components/BuynowComp'
 import { useParams } from 'react-router-dom';
 import { products } from '../data/Products';
 
@@ -57,7 +57,7 @@ const BuyNow = () => {
             {state.length > 0 ? (
                 <>
                     {state.map((item) => (
-                        <ProductList {...item} key={item.id} incrementItem={() => incrementItem(item)} decrementItem={() => decrementItem(item)} removeItem={() => removeItemFromCart(item)} />
+                        <BuynowComp {...item} key={item.id} incrementItem={() => incrementItem(item)} decrementItem={() => decrementItem(item)} removeItem={() => removeItemFromCart(item)} />
                     ))}
                 </>
             ) : (<h3>No Items</h3>)}

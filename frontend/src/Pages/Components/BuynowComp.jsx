@@ -5,7 +5,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faBoltLightning } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
-const ProductList = (props) => {
+const BuynowComp = (props) => {
   const navigate=useNavigate();
 
   return (
@@ -31,4 +31,4 @@ const ProductList = (props) => {
   )
 }
 
-export default ProductList
+export default BuynowComp

@@ -6,12 +6,12 @@ import { modifyItem, removeItem } from '../redux/reducer/cart';
 import './Styles/CartComp.css'
 import { useNavigate } from 'react-router-dom';
 import { setCartItems } from '../redux/reducer/cart';
-import {baseUrl} from '../url'
+import { baseUrl } from '../url'
 
-const Cart = () => {
+const OrderSummary = () => {
   const [loading, setLoading] = useState(true);
   const list = useSelector((state) => state.cart.list);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const incrementItem = (item) => {
@@ -21,7 +21,6 @@ const Cart = () => {
   const decrementItem = (item) => {
     if (item.count === 1) {
       dispatch(removeItem(item))
-
     }
     else {
       dispatch(modifyItem({ ...item, count: item.count - 1 }))
@@ -30,6 +29,24 @@ const Cart = () => {
 
   const removeItemFromCart = (item) => {
     dispatch(removeItem(item));
+  }
+
+  const calculatePrices = () => {
+    let totalPrice = 0;
+    let totalDiscount = 0;
+    let totalItems = 0;
+
+    list.forEach(item => {
+      const itemTotalPrice = item.new_price * item.count;
+      const itemTotalDiscount = (item.old_price - item.new_price) * item.count;
+      totalPrice += itemTotalPrice;
+      totalDiscount += itemTotalDiscount;
+      totalItems += item.count;
+    });
+
+    const totalAmount = totalPrice;
+
+    return { totalPrice, totalDiscount, totalAmount, totalItems };
   }
 
   useEffect(() => {
@@ -52,6 +69,8 @@ const Cart = () => {
     }
   }, [dispatch]);
 
+  const { totalPrice, totalDiscount, totalAmount, totalItems } = calculatePrices();
+
   return (
     <>
       {loading ? (
@@ -60,16 +79,16 @@ const Cart = () => {
         </div>
       ) : (
         <>
-          {list.length > 0  ? (
+          {list.length > 0 ? (
             <>
               <div className="cart-cont">
                 <div className="cart-left-cont">
-                  <div className="ct-heading"><span className="ct-heading-text">Your Cart Items</span></div>
+                  <div className="ct-heading"><span className="ct-heading-text">Order Summary</span></div>
                   {list.map((item) => (
                     <CartComp {...item} key={item.id} incrementItem={() => incrementItem(item)} decrementItem={() => decrementItem(item)} removeItem={() => removeItemFromCart(item)} />
                   ))}
                   <div className='place-order-cont pc'>
-                    <button className='formBtn ' onClick={()=>navigate('/checkout')}>Place Order</button>
+                    <button className='formBtn ' onClick={() => navigate('/payment')}>Continue to payment</button>
                   </div>
                 </div>
                 <div className="ct-right-cont">
@@ -78,12 +97,12 @@ const Cart = () => {
                   </div>
                   <div className="price-info">
                     <div className="price-item">
-                      <span className="item-label">Price (1 item)</span>
-                      <span className="item-value">₹1,399</span>
+                      <span className="item-label">Price ({totalItems} item{totalItems > 1 ? 's' : ''})</span>
+                      <span className="item-value">₹{totalPrice}</span>
                     </div>
                     <div className="price-item">
                       <span className="item-label">Discount</span>
-                      <span className="item-value">− ₹797</span>
+                      <span className="item-value">− ₹{totalDiscount}</span>
                     </div>
                     <div className="price-item">
                       <span className="item-label">Delivery Charges</span>
@@ -93,21 +112,20 @@ const Cart = () => {
                   <div className="price-total">
                     <div className="price-item">
                       <span className="item-label">Total Amount</span>
-                      <span className="item-value">₹1399</span>
+                      <span className="item-value">₹{totalAmount}</span>
                     </div>
                   </div>
                 </div>
                 <div className='place-order-cont mob'>
-                    <button className='formBtn ' onClick={()=>navigate('/checkout')}>Place Order</button>
-                  </div>
+                  <button className='formBtn ' onClick={() => navigate('/payment')}>Continue to pay</button>
+                </div>
               </div>
             </>
-          ) : (<h3>No Items in the Cart</h3>)}
+          ) : (<h3>404</h3>)}
         </>
       )}
     </>
   );
-
 }
 
-export default Cart
+export default OrderSummary
