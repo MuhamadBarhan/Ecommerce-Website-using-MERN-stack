@@ -37,6 +37,10 @@ const Navbar = () => {
     item.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
+  const handleItemClick = (itemName) => {
+    setSearchText(itemName); 
+  };
+
   return (
     <nav className="navbar">
       <span className="logo">
@@ -59,7 +63,7 @@ const Navbar = () => {
             {searchText && (
               <div>
                 {filteredData.map((item) => (
-                  <p key={item._id}>{item.name}</p>
+                  <p key={item._id} onClick={() => handleItemClick(item.name)}>{item.name}</p>
                 ))}
               </div>
             )}
@@ -97,7 +101,7 @@ const Navbar = () => {
               {searchText && (
                 <div className="search-results-mob">
                   {filteredData.map((item) => (
-                    <p key={item._id}>{item.name}</p>
+                    <p key={item._id} onClick={() => handleItemClick(item.name)}>{item.name}</p>
                   ))}
                 </div>
               )}
